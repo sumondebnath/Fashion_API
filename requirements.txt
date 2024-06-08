@@ -11,7 +11,7 @@ defer
 distlib
 distro
 distro-info
-Django
+django
 django-cors-headers
 django-crispy-forms
 django-environ

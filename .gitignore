@@ -1,0 +1,15 @@
+.venv
+.vscode
+.cph/
+.vscode/
+*.exe
+*.bin
+djEnv
+djEnv/
+.venv/
+Fashion_API/.env/
+.env/
+.env
+libraryManagementSystem/.env
+/env
+*.env

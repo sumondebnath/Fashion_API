@@ -16,4 +16,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Fashion_API.settings')
 application = get_wsgi_application()
 
     # for modify deploy vercel
-app= application
+# app= application

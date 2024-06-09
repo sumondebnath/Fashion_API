@@ -94,8 +94,26 @@ class ChangePasswordViewset(APIView):
 
 
 class LogoutViewset(APIView):
-    def get(self, request):
-        request.user.auth_token.delete()
-        logout(request)
-         # return redirect('login')
-        return Response({'success' : "logout successful"}, status=status.HTTP_200_OK)
+    # permission_classes = [permissions.IsAuthenticated]
+    # def post(self, request):
+    #     # if request.is_authenticated():
+    #     request.user.auth_token.delete()
+    #     logout(request)
+    #      # return redirect('login')
+    #     return Response({'messages' : "logout successful"}, status=status.HTTP_200_OK)
+    # def post(self, request):
+    #     # token = Token.objects.get(key=token.key)
+    #     # token.delete()
+    #     request.user.auth_token.delete()
+    #     logout(request)
+    #     return Response({'messsage':'Log out successfully.'})
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request):
+        try:
+            # Delete the token to force a logout
+            request.user.auth_token.delete()
+            return Response({"message": "Successfully logged out."}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)

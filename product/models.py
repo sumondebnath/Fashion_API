@@ -13,7 +13,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to="product/images/", null=True, blank=True)
     product_number = models.IntegerField(unique=True)
     brand_number = models.CharField(max_length=30)
-    size = models.CharField(max_length=10, choices=SIZE_TYPE)
+    size = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     product_type = models.CharField(max_length=255)
     gender_type = models.CharField(max_length=10, choices=GENDER_TYPE)
